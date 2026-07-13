@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>100 razones para amar a Ale</title>
+  <meta name="description" content="Una experiencia romántica interactiva con 100 razones por las que amo a Alexandra." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero" id="hero" aria-label="Portada">
+      <div class="hero__glow"></div>
+      <p class="hero__kicker">Para mi gatita, Alexandra ❤️</p>
+      <h1 class="hero__title">100 razones por las que te amo</h1>
+      <p class="hero__subtitle">
+        Abre la caja, descubre cada sobre y guarda este detalle como una pequeña parte de mi corazón.
+      </p>
+
+      <button class="gift-btn" id="openGiftBtn" type="button" aria-label="Abrir regalo">
+        <span class="gift-btn__icon" aria-hidden="true">🎁</span>
+        <span class="gift-btn__text">Ábreme, mi vida</span>
+      </button>
+    </section>
+
+    <section class="gift-stage is-hidden" id="giftStage" aria-label="Caja de regalo interactiva">
+      <div class="gift-box" id="giftBox" role="button" tabindex="0" aria-label="Abrir caja de regalo">
+        <div class="gift-box__lid"></div>
+        <div class="gift-box__body"></div>
+        <div class="gift-box__ribbon gift-box__ribbon--vertical"></div>
+        <div class="gift-box__ribbon gift-box__ribbon--horizontal"></div>
+        <div class="gift-box__sparkles">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <div class="gift-stage__copy">
+        <h2>Un regalo hecho solo para ti</h2>
+        <p>
+          Toca la caja y luego abre los sobres uno por uno. Cada uno guarda una razón distinta.
+        </p>
+      </div>
+    </section>
+
+    <section class="envelopes is-hidden" id="envelopesSection" aria-label="Sobres con razones">
+<div class="section-header">
+    <h2>Abre un sobre 💌</h2>
+
+    <p>Descubre poco a poco cada razón por la que te amo.</p>
+
+    <div class="progress-box">
+        <div class="progress-bar">
+            <div id="progressFill"></div>
+        </div>
+
+        <span id="progressText">0 / 100 abiertos</span>
+    </div>
+</div>
+
+      <div class="envelopes-grid" id="envelopesGrid" aria-live="polite">
+        <!-- Los sobres se generarán con JavaScript -->
+      </div>
+    </section>
+
+    <section class="final-letter is-hidden" id="finalLetter" aria-label="Carta final">
+      <div class="final-letter__card">
+        <p class="final-letter__kicker">Mi gordita</p>
+        <h2>Gracias por existir</h2>
+        <p>
+          Estas 100 razones son apenas una pequeña parte de todo lo que siento por ti.
+          Cada una guarda un pedacito de mi corazón, y todas juntas solo dicen una cosa:
+          te amo mucho, mi amor.
+        </p>
+        <p class="final-letter__signature">Con todo mi amor, de mi para tú ❤️</p>
+      </div>
+    </section>
+
+    <div class="modal is-hidden" id="reasonModal" role="dialog" aria-modal="true" aria-labelledby="reasonTitle" aria-describedby="reasonText">
+      <div class="modal__backdrop" id="closeModal"></div>
+<div class="modal__card">
+
+    <button class="modal__close" id="modalCloseBtn">
+        ✕
+    </button>
+
+    <div class="love-icon">
+        ❤️
+    </div>
+
+    <p class="modal__label" id="reasonTitle">
+        Sobre #1
+    </p>
+
+    <p class="modal__text" id="reasonText">
+        Porque desde que llegaste mi vida cambió.
+    </p>
+
+    <div class="signature">
+
+        Con todo mi amor ❤️
+
+        <br>
+
+        <strong>tu unico amor</strong>
+
+    </div>
+
+    <button
+        class="modal__action"
+        id="nextReasonBtn">
+
+        Abrir otro sobre 💌
+
+    </button>
+
+</div>
+  
+    </div>
+
+    <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false" aria-label="Activar o desactivar música">
+      🎵 Música
+    </button>
+  </main>
+
+  <audio id="backgroundMusic" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

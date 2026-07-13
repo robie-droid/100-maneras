@@ -1,0 +1,889 @@
+/*=============================
+      FUENTE Y VARIABLES
+==============================*/
+
+:root{
+    --bg:#0b1020;
+    --bg2:#161b33;
+    --primary:#d7265a;
+    --secondary:#ff4f81;
+    --gold:#ffd166;
+    --white:#ffffff;
+    --gray:#cfd4e3;
+    --shadow:0 20px 50px rgba(0,0,0,.35);
+    --radius:20px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:
+    radial-gradient(circle at top,#27335c 0%,#10172d 45%,#060912 100%);
+
+    color:white;
+
+    overflow-x:hidden;
+
+    min-height:100vh;
+}
+
+/*=========================
+      ESTRELLAS
+=========================*/
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:100%;
+height:100%;
+
+background-image:
+
+radial-gradient(white 1px,transparent 1px);
+
+background-size:60px 60px;
+
+opacity:.18;
+
+pointer-events:none;
+
+animation:stars 30s linear infinite;
+
+}
+
+@keyframes stars{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(-60px);
+
+}
+
+}
+
+/*=========================
+      HERO
+=========================*/
+
+.hero{
+
+height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:20px;
+
+position:relative;
+
+}
+
+.hero h1{
+
+font-size:4rem;
+
+max-width:900px;
+
+margin-bottom:20px;
+
+font-weight:800;
+
+}
+
+.hero p{
+
+font-size:1.2rem;
+
+color:#d6d6d6;
+
+max-width:700px;
+
+line-height:1.8;
+
+margin-bottom:40px;
+
+}
+
+.hero__kicker{
+
+color:var(--gold);
+
+letter-spacing:2px;
+
+font-weight:bold;
+
+margin-bottom:15px;
+
+}
+
+/*=========================
+BOTON
+=========================*/
+
+.gift-btn{
+
+background:linear-gradient(45deg,var(--primary),var(--secondary));
+
+border:none;
+
+padding:18px 40px;
+
+border-radius:50px;
+
+font-size:20px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+color:white;
+
+transition:.3s;
+
+box-shadow:0 15px 40px rgba(215,38,90,.45);
+
+}
+
+.gift-btn:hover{
+
+transform:scale(1.08);
+
+}
+
+/*=========================
+CAJA
+=========================*/
+
+.gift-stage{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:80px;
+
+padding:80px 40px;
+
+flex-wrap:wrap;
+
+}
+
+.gift-box{
+
+width:260px;
+
+height:220px;
+
+position:relative;
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+
+.gift-box:hover{
+
+transform:translateY(-10px);
+
+}
+
+.gift-box__body{
+
+position:absolute;
+
+bottom:0;
+
+width:100%;
+
+height:150px;
+
+background:linear-gradient(#ff5e8f,#c41b56);
+
+border-radius:0 0 20px 20px;
+
+box-shadow:var(--shadow);
+
+}
+
+.gift-box__lid{
+
+position:absolute;
+
+top:0;
+
+width:100%;
+
+height:70px;
+
+background:linear-gradient(#ff80aa,#d7265a);
+
+border-radius:20px;
+
+transition:.6s;
+
+transform-origin:bottom;
+
+}
+
+.gift-box:hover .gift-box__lid{
+
+transform:rotate(-15deg);
+
+}
+
+.gift-box__ribbon--vertical{
+
+position:absolute;
+
+left:48%;
+
+width:24px;
+
+height:100%;
+
+background:var(--gold);
+
+z-index:10;
+
+}
+
+.gift-box__ribbon--horizontal{
+
+position:absolute;
+
+top:60px;
+
+height:24px;
+
+width:100%;
+
+background:var(--gold);
+
+z-index:10;
+
+}
+
+/*=========================
+SOBRES
+=========================*/
+
+.envelopes{
+
+padding:80px 30px;
+
+}
+
+.section-header{
+
+text-align:center;
+
+margin-bottom:40px;
+
+}
+
+.envelopes-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(90px,1fr));
+
+gap:18px;
+
+max-width:1200px;
+
+margin:auto;
+
+}
+
+.envelope{
+
+height:70px;
+
+background:linear-gradient(#fff,#f0f0f0);
+
+border-radius:10px;
+
+cursor:pointer;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-weight:bold;
+
+font-size:20px;
+
+color:#444;
+
+transition:.3s;
+
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+
+}
+
+.envelope:hover{
+
+transform:translateY(-8px);
+
+background:linear-gradient(#fff,#ffe5ef);
+
+}
+
+.envelope.opened{
+
+background:#ffd166;
+
+color:#222;
+
+}
+
+/*=========================
+MODAL
+=========================*/
+
+.modal{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.8);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:20px;
+
+z-index:999;
+
+}
+
+.modal__card{
+
+background:white;
+
+color:#333;
+
+width:600px;
+
+max-width:100%;
+
+padding:40px;
+
+border-radius:20px;
+
+position:relative;
+
+text-align:center;
+
+animation:pop .4s;
+
+}
+
+@keyframes pop{
+
+from{
+
+transform:scale(.7);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+.modal__close{
+
+position:absolute;
+
+right:20px;
+
+top:15px;
+
+font-size:30px;
+
+background:none;
+
+border:none;
+
+cursor:pointer;
+
+}
+
+.modal__label{
+
+font-size:24px;
+
+font-weight:bold;
+
+color:var(--primary);
+
+margin-bottom:20px;
+
+}
+
+.modal__text{
+
+font-size:22px;
+
+line-height:1.8;
+
+margin-bottom:30px;
+
+}
+
+.modal__action{
+
+background:var(--primary);
+
+color:white;
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:40px;
+
+cursor:pointer;
+
+font-size:18px;
+
+}
+
+/*=========================
+CARTA FINAL
+=========================*/
+
+.final-letter{
+
+padding:120px 20px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.final-letter__card{
+
+background:white;
+
+color:#333;
+
+max-width:700px;
+
+padding:60px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+text-align:center;
+
+}
+
+.final-letter__card h2{
+
+font-size:40px;
+
+margin:20px 0;
+
+color:var(--primary);
+
+}
+
+.final-letter__signature{
+
+margin-top:40px;
+
+font-size:22px;
+
+font-weight:bold;
+
+color:var(--primary);
+
+}
+
+/*=========================
+MUSICA
+=========================*/
+
+.music-toggle{
+
+position:fixed;
+
+bottom:25px;
+
+right:25px;
+
+padding:15px 20px;
+
+border:none;
+
+border-radius:50px;
+
+background:#d7265a;
+
+color:white;
+
+cursor:pointer;
+
+box-shadow:var(--shadow);
+
+}
+
+/*=========================
+OCULTAR
+=========================*/
+
+.is-hidden{
+
+display:none;
+
+}
+
+/*=========================
+RESPONSIVE
+=========================*/
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:2.4rem;
+
+}
+
+.hero p{
+
+font-size:1rem;
+
+}
+
+.gift-stage{
+
+gap:30px;
+
+}
+
+.modal__text{
+
+font-size:18px;
+
+}
+
+}
+/*=========================
+ANIMACIÓN DE LA CAJA
+=========================*/
+
+.gift-box{
+    transition:1s;
+}
+
+.gift-box.open{
+
+    transform:scale(1.08);
+
+}
+
+.gift-box.open .gift-box__lid{
+
+    transform:rotate(-45deg) translateY(-35px);
+
+}
+
+/*=========================
+ANIMACIÓN HERO
+=========================*/
+
+.hero{
+
+transition:.5s;
+
+}
+
+.gift-stage{
+
+animation:fade .8s;
+
+}
+
+.envelopes{
+
+animation:fade .8s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+.envelope{
+
+height:95px;
+
+border-radius:15px;
+
+background:white;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:20px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+}
+
+.envelope:hover{
+
+transform:scale(1.08);
+
+}
+
+.opened{
+
+background:#ff4d79;
+
+color:white;
+
+}
+.progress-box{
+    max-width:500px;
+    margin:25px auto;
+    text-align:center;
+}
+
+.progress-bar{
+    width:100%;
+    height:16px;
+    background:#ddd;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+#progressFill{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#ff4d79,#ff8fab);
+    transition:.5s;
+}
+
+#progressText{
+    display:block;
+    margin-top:12px;
+    color:white;
+    font-weight:bold;
+}
+/*=========================
+      TARJETA ROMÁNTICA
+=========================*/
+
+.modal__card{
+
+    background:linear-gradient(
+        180deg,
+        #fff9fc,
+        #ffffff
+    );
+
+    border-radius:25px;
+
+    width:90%;
+
+    max-width:500px;
+
+    padding:45px;
+
+    text-align:center;
+
+    position:relative;
+
+    animation:subir .45s;
+
+}
+
+.love-icon{
+
+    font-size:55px;
+
+    margin-bottom:20px;
+
+    animation:latido 1.5s infinite;
+
+}
+
+.modal__label{
+
+    color:#d7265a;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    margin-bottom:25px;
+
+}
+
+.modal__text{
+
+    font-size:22px;
+
+    color:#444;
+
+    line-height:1.8;
+
+    min-height:150px;
+
+}
+
+.signature{
+
+    margin-top:30px;
+
+    color:#d7265a;
+
+    font-size:18px;
+
+}
+
+.modal__action{
+
+    margin-top:35px;
+
+    width:100%;
+
+    border:none;
+
+    padding:18px;
+
+    border-radius:40px;
+
+    background:#d7265a;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+@keyframes subir{
+
+    from{
+
+        transform:translateY(60px);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:translateY(0);
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes latido{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.15);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
