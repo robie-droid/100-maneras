@@ -134,7 +134,7 @@ const razones = [
 "Porque quiero seguir escribiendo nuestra historia, un día a la vez.",
 "Porque después de estas 99 razones, todavía me quedan miles más.",
 "Porque no existe un solo día en el que deje de elegirte.",
-"Porque simplemente te amo, mi gordita, y esa siempre será la razón más importante."
+"Porque simplemente te amo, mi vida, y esa siempre será la razón más importante."
 ];
 
     //==========================
